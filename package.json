@@ -1,0 +1,37 @@
+{
+  "name": "inventario-de-animales",
+  "version": "1.0.0",
+  "description": "Gestión de los animales de granja",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev":"nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cristo-carrillo/inventario-de-animales.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cristo-carrillo/inventario-de-animales/issues"
+  },
+  "homepage": "https://github.com/cristo-carrillo/inventario-de-animales#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.4",
+    "express-session": "^1.17.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.0.12",
+    "passport": "^0.5.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.14",
+    "npm-check-updates": "^12.0.0"
+  }
+}

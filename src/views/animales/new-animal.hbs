@@ -1,0 +1,28 @@
+<div class="col-md-4 mx-auto">
+    <div class="card text-center">
+        <div class="card-header">
+            <h3>Nuevo animal </h3>
+        </div>
+        <div class="card-body">
+            <form action="/animales/new-animal" method="POST">
+                <div class="form-group">
+                    <input type="text" name="especie" class="form-control" placeholder="Especie" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="number" name="cantidad" class="form-control" placeholder="Cantidad" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="number" name="valor" class="form-control" placeholder="Valor" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="date" name="fecha" class="form-control" placeholder="Fecha" autofocus>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block" type="submit">
+                        guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
