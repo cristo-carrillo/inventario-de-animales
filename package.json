@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev":"nodemon src/index.js"
+    "dev": "nodemon src/index.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/cristo-carrillo/inventario-de-animales#readme",
   "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.5",
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
     "express": "^4.17.1",
@@ -31,6 +32,7 @@
   },
   "devDependencies": {
     "dotenv": "^10.0.0",
+    "handlebars": "^4.5.0",
     "nodemon": "^2.0.14",
     "npm-check-updates": "^12.0.0"
   }

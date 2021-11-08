@@ -15,12 +15,27 @@
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
+                {{#if usuario}}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-expanded="false">
+                        Animales
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/animales">todos los animales</a>
+                        <a class="dropdown-item" href="/animales/add">agregar animales</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/usuarios/logout">Salir</a>
+                    </div>
+                </li>
+                {{else}}
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Iniciar sesion</a>
+                    <a href="/usuarios/signin" class="nav-link">Iniciar sesion</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Registrarse</a>
+                    <a href="/usuarios/signup" class="nav-link">Registrarse</a>
                 </li>
+                {{/if}}
             </ul>
 
         </div>

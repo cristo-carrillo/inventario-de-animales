@@ -3,16 +3,18 @@ const router = Router();
 
 const {renderAnimalForm,createNewAnimal,renderanimales,renderEditForm,updateAnimal,deleteAnimal} = require('../controllers/animales.controller');
 
-router.get('/animales/add', renderAnimalForm);
+const {isAuthenticated} = require('../helpers/auth');
 
-router.post('/animales/new-animal', createNewAnimal);
+router.get('/animales/add',isAuthenticated, renderAnimalForm);
 
-router.get('/animales/', renderanimales);
+router.post('/animales/new-animal',isAuthenticated, createNewAnimal);
 
-router.get('/animales/edit/:id', renderEditForm);
+router.get('/animales/',isAuthenticated, renderanimales);
 
-router.put('/animales/edit/:id', updateAnimal);
+router.get('/animales/edit/:id',isAuthenticated, renderEditForm);
 
-router.delete('/animales/delete/:id', deleteAnimal)
+router.put('/animales/edit/:id',isAuthenticated, updateAnimal);
+
+router.delete('/animales/delete/:id',isAuthenticated, deleteAnimal)
 
 module.exports = router

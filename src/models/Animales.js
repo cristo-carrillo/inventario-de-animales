@@ -16,6 +16,10 @@ const AnimalSchema = new Schema({
     fecha:{
         type:Date,
         required:true
+    },
+    usuario: {
+        type: String,
+        required: true
     }
 });
 

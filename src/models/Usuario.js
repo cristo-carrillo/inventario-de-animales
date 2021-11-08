@@ -8,7 +8,8 @@ const UsuarioSchema = new Schema({
     },
     correo:{
         type:String,
-        required: true
+        required: true,
+        unique: true
     },
     contrasena:{
         type:String,
@@ -20,10 +21,10 @@ const UsuarioSchema = new Schema({
 
 UsuarioSchema.methods.encrypContrasena = async contrasena =>{
     const salt = await bcrypt.genSalt(10);
-    return await bycrypt.hash(contrasena,salt);
+    return await bcrypt.hash(contrasena,salt);
 }
 
-UsuarioSchema.methods.matchContrasena =function(contrasena){
+UsuarioSchema.methods.matchContrasena =async function(contrasena){
     return await bcrypt.compare(contrasena,this.contrasena);
 }
 

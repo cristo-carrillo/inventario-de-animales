@@ -1,29 +1,48 @@
 const animalesCtr = {};
 
+const Animal = require('../models/Animales');
 
 animalesCtr.renderAnimalForm = (req, res) => {
+    
     res.render('animales/new-animal')
 };
 
-animalesCtr.createNewAnimal = (req, res) => {
-    console.log(req.body);
-    res.send('animal add')
+animalesCtr.createNewAnimal =async (req, res) => {
+    const { especie,cantidad,valor,fecha}=req.body;
+    const newAnimal = new Animal({especie,cantidad,valor,fecha});
+    newAnimal.usuario=req.user.id;
+    await newAnimal.save();
+    req.flash("success_msg", "Animal agregado satisfactoriamente");
+    res.redirect('/animales')
 };
 
-animalesCtr.renderanimales = (req, res) => {
-    res.send('render animales')
+animalesCtr.renderanimales = async (req, res) => {
+    const animales = await Animal.find({usuario: req.user.id});
+    res.render('animales/all-animales',{animales});
 };
 
-animalesCtr.renderEditForm = (req, res) => {
-    res.send('render edit form')
+animalesCtr.renderEditForm =async (req, res) => {
+    const animal= await Animal.findById(req.params.id);
+    if (animal.usuario != req.user.id) {
+        req.flash("error_msg", "No autorizado.");
+        return res.redirect("/animales");
+    }
+    res.render('animales/edit-animal',{animal});
 };
 
-animalesCtr.updateAnimal = (req, res) => {
-    res.send('update animal')
+animalesCtr.updateAnimal =async (req, res) => {
+    const{cantidad,valor}=req.body;
+    await Animal.findByIdAndUpdate(req.params.id,{cantidad,valor});
+    req.flash("success_msg", "Animal actualizado satisfactoriamente");
+    res.redirect('/animales');
 };
 
-animalesCtr.deleteAnimal= (req, res) => {
-    res.send('delete animal')
+animalesCtr.deleteAnimal=async (req, res) => {
+    await Animal.findByIdAndDelete(req.params.id);
+    req.flash("success_msg", "Animal eliminado satisfactoriamente");
+    res.redirect('/animales')
 }
 
 module.exports = animalesCtr;
+
+
