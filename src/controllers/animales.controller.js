@@ -1,4 +1,5 @@
 const animalesCtr = {};
+const moment = require('moment');
 
 const Animal = require('../models/Animales');
 
@@ -18,7 +19,17 @@ animalesCtr.createNewAnimal =async (req, res) => {
 
 animalesCtr.renderanimales = async (req, res) => {
     const animales = await Animal.find({usuario: req.user.id});
-    res.render('animales/all-animales',{animales});
+    let animal = [];
+    animales.forEach(animation => {
+        let c ={"_id":animation._id,
+        "especie":animation.especie,
+        "cantidad":animation.cantidad,
+        "valor":animation.valor,
+        "fecha":moment(animation.fecha).format("DD/MM/YYYY"),
+        "usuario":animation.usuario};
+        animal.push(c)
+    });
+    res.render('animales/all-animales',{animal});
 };
 
 animalesCtr.renderEditForm =async (req, res) => {
@@ -27,7 +38,7 @@ animalesCtr.renderEditForm =async (req, res) => {
         req.flash("error_msg", "No autorizado.");
         return res.redirect("/animales");
     }
-    res.render('animales/edit-animal',{animal});
+    res.render('animales/edit-animal',{animal,});
 };
 
 animalesCtr.updateAnimal =async (req, res) => {

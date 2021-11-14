@@ -1,6 +1,29 @@
 body{
-    background: rgba(0, 255, 34, 0.876);
+    background: url(/img/fondo.jpg)no-repeat center center fixed;
+    background-size: cover;
 }
 .logo {
     width: 30%;
+}
+.colornav{
+    background: rgba(3,3,3,0.25);
+    text-decoration: bold;
+}
+.colort{
+    background: rgba(3, 3, 3, 0.335);
+    border-radius: 6px;
+}
+.colort>a{
+    font-weight: bold;
+}
+.colort>a:hover{
+    background: rgba(44, 102, 21, 0.548);
+    font-weight: bold;
+    color: #fff;
+}
+
+.allanimal{
+    background:rgba(3, 3, 3, 0.561);
+    text-align: center;
+    color:#fff;
 }

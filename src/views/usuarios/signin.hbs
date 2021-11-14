@@ -1,26 +1,24 @@
-<div class="row">
-    <div class="col-md-4 mx-auto">
-    <div class="card mt-4 text-center">
-        <div class="card-header">
-        <h1 class="h4">
-            Iniciar sesión
-        </h1>
-        </div>
-        
-        <img class="rounded-circle mx-auto d-block logo m-4" src="/img/logo.png" alt="Logo">
-        <div class="card-body">
-        <form action="/usuarios/signin" method="POST">
-            <div class="form-group">
-            <input type="email" class="form-control" name="correo" placeholder="Ingresa tu email" autofocus>
-            </div>
-            <div class="form-group">
-            <input type="password" class="form-control" name="contrasena" placeholder="Ingresa tu contraseña">
-            </div>
-            <button class="btn btn-primary btn-block">
-                Iniciar sesión
-            </button>
-        </form>
-        </div>
+<link rel="stylesheet" href="../css/login.css">
+<div id="container">
+    <h1>Login</h1>
+    <div id="login-button">
+        <img src="https://dqcgrsy5v35b9.cloudfront.net/cruiseplanner/assets/img/icons/login-w-icon.png"></img>
     </div>
-    </div>
+    <form action="/usuarios/signin" method="POST">
+        <div class="form-group">
+            <input type="email" name="correo" placeholder="usuario">
+        </div>
+        <div class="form-group">
+            <input type="password" name="contrasena" placeholder="contraseña">
+        </div>
+        <button>Iniciar sesion</button>
+
+        <div id="remember-container">
+
+            <input type="checkbox" id="checkbox-2-1" class="checkbox" checked="checked" />
+            <span id="remember">Recordar</span>
+            <span id="forgotten">Cambiar contraseña</span>
+
+        </div>
+    </form>
 </div>

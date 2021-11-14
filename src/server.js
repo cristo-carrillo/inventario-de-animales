@@ -4,7 +4,7 @@ const exphbs = require('express-handlebars');
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
 const path = require('path');
 const methodOverride = require('method-override');
-
+const moment = require('moment');
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport= require('passport');

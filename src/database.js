@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const { NAME_HOST,NAME_DATABASE }=process.env;
+//conexion con la base de datos
 const URL_CONECTION = `mongodb://${NAME_HOST}/${NAME_DATABASE}`;
 mongoose.connect(URL_CONECTION,{
     useUnifiedTopology: true,
