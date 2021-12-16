@@ -32,18 +32,20 @@ body {
     box-shadow: 10px 10px 30px #000;}
   
   /* Login container */
+  .padre{
+    display: flex;
+    height:calc(100vh - 150px);
+    justify-content: center;
+    align-items: center;
+  }
+
   #container{
-    position: relative;
-    top: 0;
-    float: left;
     bottom: 0;
-    margin: auto;
     width: 420px;
     height:420px;
-    border-radius: 5px;
+    border-radius: 10px;
     background: rgba(3,3,3,0.25);
     box-shadow: 1px 1px 50px #000;
-    display: disable;
   }
   
   

@@ -1,0 +1,27 @@
+<div class="row">
+    {{#each gasto}}
+    <div class="col-md-3">
+        <div class="card allanimal arreglo">
+            <div class="card-body">
+                <h4
+                    class="card-title d-flex justify-content-between align-items-center text-capitalize font-weight-bold">
+                    {{descripcion}}
+                    <a href="/gastos/edit/{{_id}}" title="Editar gasto"><i class="far fa-edit"></i></a>
+                </h4>
+                <p class="font-weight-bold"> Cantidad: {{cantidad}}</p>
+                <p class="font-weight-bold">Valor: {{valor}}</p>
+                <p class="font-weight-bold">Fecha:{{fecha}}</p>
+                <form action="/gastos/delete/{{_id}}?_method=DELETE" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <div class="form-group">
+                        <input type="text" name="especie" class="form-control" value="{{especie}}" hidden>
+                    </div>
+                    <button type="submit" class="btn btn-danger btn-sm res" title="eliminar gasto">
+                        <i class="far fa-trash-alt"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>

@@ -8,6 +8,8 @@ const moment = require('moment');
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport= require('passport');
+const multer= require('multer');
+const { v4: uuidv4 } = require('uuid');
 //inicializaciones
 const app = express();
 require('./config/passport');
@@ -27,7 +29,17 @@ app.set('view engine', '.hbs');
 //middlewares
 
 app.use(express.urlencoded({extends: false}));
+app.use(express.json())
 app.use(methodOverride('_method'));
+const storage=multer.diskStorage({
+    destination: path.join(__dirname, 'public/img/uploads'),
+    filename:(req,file,cb,filename)=>{
+        cb(null,uuidv4()+path.extname(file.originalname));
+    }
+});
+app.use(multer({
+    storage:storage
+}).single('image'));
 app.use(session({
     secret: 'secret',
     resave: true,
@@ -50,7 +62,8 @@ app.use((req, res, next) => {
 app.use(require('./routes/index.routes'));
 app.use(require('./routes/animales.routes'));
 app.use(require('./routes/usuarios.routes'));
-
+app.use(require('./routes/gastos.routes'));
+app.use(require('./routes/ventas.routes'));
 //archivos estaticos
 app.use(express.static(path.join(__dirname,'public')));
 

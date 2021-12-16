@@ -1,23 +1,27 @@
 <link rel="stylesheet" href="../css/iniciar.css">
-<div id="container">
-    <br>
-    <h1>Registrarse</h1>
+<div class="padre">
+    <div id="container">
+        <br>
+        <h1>Registrarse</h1>
 
-    <form action="/usuarios/signup" method="POST">
-    <br>
-        <div class="form-group">
-            <input type="text"  name="nombre" placeholder="Ingresa tu nombre" value="{{nombre}}">
-        </div>
-        <div class="form-group">
-            <input type="email"  name="correo" placeholder="Ingresa tu email" value="{{correo}}">
-        </div>
-        <div class="form-group">
-            <input type="password" name="contrasena" placeholder="Ingresa tu contraseña">
-        </div>
-        <div class="form-group">
-            <input type="password" name="confirm_contrasena" placeholder="Confirmar contraseña">
-        </div>
-        <button>Registrarme</button>
-    </form>
+        <form action="/usuarios/signup" method="POST">
+            <br>
+            <div class="form-group">
+                <input type="text" name="nombre" placeholder="Ingresa tu nombre" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="correo" placeholder="Ingresa tu email" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="telefono" placeholder="Ingresa tu telefono" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="contrasena" placeholder="Ingresa tu contraseña" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="confirm_contrasena" placeholder="Confirmar contraseña" required>
+            </div>
+            <button>Registrarme</button>
+        </form>
+    </div>
 </div>
-

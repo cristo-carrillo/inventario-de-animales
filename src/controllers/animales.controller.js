@@ -25,7 +25,7 @@ animalesCtr.renderanimales = async (req, res) => {
         "especie":animation.especie,
         "cantidad":animation.cantidad,
         "valor":animation.valor,
-        "fecha":moment(animation.fecha).format("DD/MM/YYYY"),
+        "fecha":moment(animation.fecha).utc().format('DD/MM/YYYY'),
         "usuario":animation.usuario};
         animal.push(c)
     });

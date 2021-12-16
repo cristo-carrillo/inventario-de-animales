@@ -1,23 +1,63 @@
-<div class="row" >
-    {{#each animal}}
-        <div class="col-md-3">
-            <div class="card  allanimal">
-                <div class="card-body">
-                    <h4 class="card-title d-flex justify-content-between align-items-center">
-                        especie:{{especie}}
-                        <a href="/animales/edit/{{_id}}"><i class="far fa-edit"></i></a>
-                    </h4>
-                    <p>Cantidad: {{cantidad}}</p>
-                    <p>Valor: {{valor}}</p>
-                    <p>Fecha:{{fecha}}</p>
-                    <form action="/animales/delete/{{_id}}?_method=DELETE" method="POST">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <button type="submit" class="btn btn-danger btn-sm">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    {{/each}}
+<div class="container letra">
+    <table id="example" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr class="text-center">
+                <th>Especie</th>
+                <th>Cantidad</th>
+                <th>Valor</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each animal}}
+            <tr class="text-center">
+                <th>{{especie}}</th>
+                <th> {{cantidad}}</th>
+                <th> {{valor}}</th>
+                <th>{{fecha}}</th>
+                <td>
+                    <div class="row">
+                        <div class="col-2 text-center espacio">
+                            <a href="/gastos/add/{{_id}}" class="btn btn-sm color res" title="Agregar gasto">
+                                <i class="fas fa-plus"></i>
+                                </a>
+                                
+                        </div>
+                        <div class="col-2 text-center espacio">
+                            <a href="/gastos/{{_id}}" class="btn btn-sm color2 res" title="Mostrar Gastos">
+                                <i class="fas fa-clipboard-list"></i>
+                            </a>
+                        </div>
+                        <div class="col-2 text-center espacio">
+                            <a href="/ventas/add/{{_id}}/{{cantidad}}" class="btn btn-sm btn-warning res" title="Agregar venta">
+                                <i class="fas fa-shopping-bag"></i>
+                            </a>
+                        </div>
+                        <div class="col-2 text-center espacio">
+                            <a href="/ventas/{{_id}}" class="btn btn-sm btn-color res" title="Mostrar ventas">
+                                <i class="fas fa-money-check-alt"></i>
+                            </a>
+                        </div>
+                        <div class="col-2 text-center espacio">
+                            <a href="/animales/edit/{{_id}}" class="btn btn-primary btn-sm res" title="Editar especie"><i
+                                    class="far fa-edit"></i>
+                            </a>
+                        </div>
+                        <div class="col-2 espacio">
+                            <form action="/animales/delete/{{_id}}?_method=DELETE" method="POST">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="btn btn-danger btn-sm res text-xs-left" title="Eliminar especie">
+                                    <i class="far fa-trash-alt"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            {{/each}}
+            </tfoot>
+    </table>
 </div>
+
+

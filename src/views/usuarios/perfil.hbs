@@ -1,0 +1,112 @@
+<link rel="stylesheet" href="../css/perfil.css">
+<div class="container">
+    <section class="seccion-perfil-usuario">
+        <div class="perfil-usuario-header">
+            <div class="perfil-usuario-portada">
+                <div class="perfil-usuario-avatar">
+                    {{#if usuario.image}}
+                        <img src="{{usuario.image}}" alt="img-avatar">
+                    {{else}}
+                        <img src="/img/icono.png" alt="img-avatar">
+                    {{/if}}
+                    <button type="button" class="boton-avatar" data-toggle="modal" data-target="#staticBackdrop2">
+                        <i class="far fa-image"></i>
+                        
+                    </button>
+                </div>
+
+            </div>
+        </div>
+        <div class="perfil-usuario-body">
+            <div class="perfil-usuario-bio">
+
+                <h3 class="titulo">{{usuario.nombre}}</h3>
+            </div>
+            <div class="perfil-usuario-footer">
+                <ul class="lista-datos">
+                    <li><i class="icono far fa-envelope"></i> Email: {{usuario.correo}}</li>
+                </ul>
+                <ul class="lista-datos">
+                    <li><i class="icono fas fa-phone"></i> Telefono: {{usuario.telefono}}</li>
+                </ul>
+            </div>
+            <div class="redes-sociales">
+                <a data-toggle="modal" data-target="#exampleModal" class="boton-redes facebook fas fa-user-edit"><i
+                        class="icon-facebook"></i></a>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content redondeo">
+            <div class="modal-header headerModal">
+                <h5 class="modal-title" id="exampleModalLabel">Actualizar Perfil</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/usuarios/editPerfil/{{usuario.id}}?_method=PUT" method="POST">
+                    <input type="hidden" name="_method" value="PUT">
+                    <div class="form-group">
+                        <input type="text" name="nombre" class="form-control" value="{{usuario.nombre}}">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="correo" class="form-control" value="{{usuario.correo}}">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="telefono" class="form-control" value="{{usuario.telefono}}">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary redondeo" type="submit">
+                            <i class="fa fa-fw fa-lg fa-check-circle" aria-hidden="true"></i>
+                            <span id="btnText">Actualizar</span>
+                        </button>
+                        <button type="button" class="btn btn-danger redondeo" data-dismiss="modal">
+                            <i class="fa fa-fw fa-lg fa-times-circle" aria-hidden="true"></i>
+                            <span id="btnText">Cerrar</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop2" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content redondeo">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Elegir foto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="/usuarios/upload/{{usuario.id}}?_method=PUT" enctype="multipart/form-data">
+                    <input type="hidden" name="_method" value="PUT">
+                    <div class="input-group mb-3">
+                        <div class="custom-file">
+                            <input type="file" name="image" class="custom-file-input" id="inputGroupFile02">
+                            <label class="custom-file-label" for="inputGroupFile02"
+                                aria-describedby="inputGroupFileAddon02">Elije tu foto</label>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-upload"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

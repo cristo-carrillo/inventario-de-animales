@@ -27,3 +27,93 @@ body{
     text-align: center;
     color:#fff;
 }
+.colr{
+    background: rgba(75, 172, 37, 0.452);
+    color: white;
+}
+.letra{
+    background:rgba(253, 253, 253, 0.733);
+    color:rgb(0, 0, 0);
+}
+
+.user{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+    
+}
+
+.color{
+    background:rgb(7, 236, 187);
+    color: #fff;
+}
+.color2{
+    background:rgb(147, 236, 3);
+    color: #fff;
+}
+
+.res{
+    border-radius:4px;
+
+}
+.color:hover{
+    background:rgb(11, 192, 153);
+    color: #fff;
+}
+.color2:hover{
+    background:rgb(114, 182, 5);
+    color: #fff;
+}
+.mostra{
+    height:50px;
+    width:600px;
+    border-radius:8px;
+}
+
+.arreglo{
+    border-radius:5px;
+}
+
+.add{
+    background-color: rgb(25, 223, 25);
+    color:#fff;
+}
+
+.add:hover{
+    background-color: rgb(16, 185, 16);
+    color:#fff;
+}
+
+.izquierda{
+    display: flex;
+    justify-content: left;
+    align-items: left;
+}
+.ajuste-tamano{
+    margin:0px;
+    width:20px;
+}
+.color-alerta{
+    background-color:rgba(201, 134, 11, 0.726);
+    color: #fff;
+}
+.espacio{
+    padding:0px;
+}
+.btn-color{
+    background-color: yellow;
+    color: rgb(192, 192, 192);
+}
+.btn-color:hover{
+    background-color: rgb(212, 212, 4);
+    color: #fff;
+}
+
+.obligatorio{
+    margin: 0;
+    padding: 0px 0px 0px 7px;
+    color: red;
+}

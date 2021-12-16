@@ -1,6 +1,15 @@
 <nav class="navbar navbar-expand-lg navbar-dark colornav">
     <div class="container">
-        <a class="navbar-brand" href="/">Animales App</a>
+        {{#if usuario}}
+        <a href="/usuarios/perfil">
+        {{#if usuario.image}}
+        <img src="{{usuario.image}}" href="/usuarios/perfil" class="user">
+        {{else}}
+        <img src="/img/icono.png" href="/usuarios/perfil" class="user">
+        {{/if}}
+        </a>
+        <a class="navbar-brand" href="/usuarios/perfil">Perfil</a>
+        {{/if}}
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -8,14 +17,15 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/about">About</a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/about">Nosotros</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 {{#if usuario}}
+                
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-expanded="false">
@@ -24,16 +34,15 @@
                     <div class="dropdown-menu colort" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/animales">Todos los animales</a>
                         <a class="dropdown-item" href="/animales/add">Agregar animales</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/usuarios/logout">Salir</a>
                     </div>
                 </li>
+                <a class="nav-link" href="/usuarios/logout"><i class="fas fa-sign-out-alt"></i></a>
                 {{else}}
                 <li class="nav-item">
-                    <a href="/usuarios/signin" class="nav-link">Iniciar sesion</a>
+                    <a href="/usuarios/signin" class="nav-link active">Iniciar sesion</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/usuarios/signup" class="nav-link">Registrarse</a>
+                    <a href="/usuarios/signup" class="nav-link active">Registrarse</a>
                 </li>
                 {{/if}}
             </ul>

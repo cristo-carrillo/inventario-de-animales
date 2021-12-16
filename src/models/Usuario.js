@@ -14,6 +14,13 @@ const UsuarioSchema = new Schema({
     contrasena:{
         type:String,
         required: true
+    },
+    telefono:{
+        type:String,
+        required: true
+    },
+    image:{
+        type:String
     }
 },{
     timestamps:true
